@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -15,6 +15,12 @@ import DetailsScreen from "./screens/DetailsScreen.js";
 
 function HomeScreen({ navigation }) {
   const [colors, setColors] = useState([]);
+  
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <Button title="Add" onPress={addColor} />,
+    })
+  })
 
   function renderItem({ item }) {
     return (
@@ -42,7 +48,6 @@ function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Button onPress={addColor} title="Add Color" />
       <FlatList
         style={{ width: "100%" }}
         data={colors}
