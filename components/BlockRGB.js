@@ -6,7 +6,7 @@ export default function BlockRGB({ red, green, blue }) {
     <View
       style={{
         width: "100%",
-        height: "10%",
+        height: 80,
         backgroundColor: `rgba( ${red}, ${green}, ${blue}, 1.0)`,
       }}
     />
